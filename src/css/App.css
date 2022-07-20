@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #3a48b0;
+  background-color: rgba(77, 210, 111, 0.93);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@
 
 .App-LoginBar-M {
   width: calc(100px + 50vmin);
-  background-color: #3a48b0;
+  background-color: #e6c42e;
   min-height: 20vh;
   display: flex;
   flex-direction: column;

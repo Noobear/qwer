@@ -1,41 +1,46 @@
 // import { API_BASE_URL } from "../app-config";
-const Authorization = "Authorization";
+import {Functions} from "@mui/icons-material";
+
+const Authoriza = "Authorization";
 
 export function call(api, method, request) {
     let headers = new Headers({
         "Content-Type": "application/json",
     });
-
     // 로컬 스토리지에서 ACCESS TOKEN 가져오기
     const Authorization = localStorage.getItem("Authorization");
+    console.log(Authorization);
+
     if (Authorization && Authorization !== null) {
-        headers.append("Authorization", "Bearer "+Authorization);
+        headers.append("Authorization", Authorization);
     }
 
     let options = {
         headers: headers,
         url: api,
         method: method,
+        mode: "cors"
     };
 
     if (request) {
         // GET method
         options.body = JSON.stringify(request);
-        console.log("options : ",options);
+
+        console.log("request : ",headers);
+
+
         // console.log("options.body : ",options.body);
         // console.log("options.url : ",options.url);
     }
     return fetch(options.url, options)
-        .then((response) =>
-            response.json().then((json) => {
+        .then((response) => {
                 if (!response.ok) {
                     // response.ok가 true이면 정상적인 리스폰스를 받은것, 아니면 에러 리스폰스를 받은것.
-                    return Promise.reject(json);
-
+                    return Promise.reject(response);
                 }
-                return json;
+                return response;
             })
-        )
+
         .catch((error) => {
             // 추가된 부분
             console.log("error.status : ",error.status);
@@ -48,12 +53,15 @@ export function call(api, method, request) {
 }
 
 export function login(loginDTO) {
-    return call("/login", "POST", loginDTO).then((response) => {
-        console.log(response);
 
-        if (response.token) {
+    return call("/login", "POST", loginDTO).then((response) => {
+
+        if (response.headers.get("Authorization") && response.headers.get("refreshToken")) {
             // 로컬 스토리지에 토큰 저장
-            localStorage.setItem(Authorization, response.token);
+
+            localStorage.setItem("Authorization",response.headers.get("Authorization"));
+            localStorage.setItem("refreshToken",response.headers.get("refreshToken"));
+
             // token이 존재하는 경우
             window.location.href = "/auth";
         }
@@ -61,10 +69,11 @@ export function login(loginDTO) {
 }
 
 // export function signout() {
-//     localStorage.setItem(ACCESS_TOKEN, null);
+//     localStorage.setItem(Authorization, null);
 //     window.location.href = "/login";
 // }
 
 export function signup(userDTO) {
+
     return call("/auth/signup", "POST", userDTO);
 }
