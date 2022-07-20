@@ -1,6 +1,6 @@
 import React from "react";
 import { login } from "./service/ApiService";
-import {Link, Button, TextField, Grid, Container} from "@mui/material";
+import {Button, TextField, Grid, Container} from "@mui/material";
 
 class Login extends React.Component {
     constructor(props) {
@@ -24,7 +24,8 @@ class Login extends React.Component {
                     {" "}
                     {/* submit 버튼을 누르면 handleSubmit이 실행됨. */}
                     <Grid container spacing={2}>
-                        <Grid item xs={12}>
+                        <Grid item xs={12}
+                              style={{ marginTop: "0.25%" }}>
                             <TextField
                                 variant="standard"
                                 required
@@ -64,7 +65,7 @@ class Login extends React.Component {
                                 fullWidth
                                 variant="contained"
                                 color="success"
-                                style={{ marginTop: "0.5%", marginBottom:"3.5%" }}
+                                style={{ marginTop: "0.5%", marginBottom:"8.5%" }}
                             >
                                 회원가입
                             </Button>

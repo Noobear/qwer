@@ -11,9 +11,15 @@ export function call(api, method, request) {
     const Authorization = localStorage.getItem("Authorization");
     console.log(Authorization);
 
-    if (Authorization && Authorization !== null) {
-        headers.append("Authorization", Authorization);
+    const e1 = localStorage.getItem("Authorization");
+    const e2 = localStorage.getItem("refreshToken");
+    if (e1 && e2 !== null) {
+        headers.append("Authorization", e1);
+        headers.append("refreshToken", e2);
     }
+    // if (Authorization && Authorization !== null) {
+    //     headers.append("Authorization", Authorization);
+    // }
 
     let options = {
         headers: headers,
@@ -68,10 +74,24 @@ export function login(loginDTO) {
     });
 }
 
-// export function signout() {
-//     localStorage.setItem(Authorization, null);
-//     window.location.href = "/login";
-// }
+export function signout() {
+    return call('/api/logout', 'GET', null).then(()=>{
+        localStorage.removeItem("Authorization");
+        localStorage.removeItem("refreshToken");
+
+
+        window.location.href = "/";
+    })
+
+    // const e1 = localStorage.getItem("Authorization");
+    // const e2 = localStorage.getItem("refreshToken");
+    // if (e1 && e2 !== null) {
+    //     headers.append("Authorization", e1);
+    //     headers.append("Authorization", e2);
+    // }
+
+    // window.location.href = "/login";
+}
 
 export function signup(userDTO) {
 
