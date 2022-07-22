@@ -5,8 +5,8 @@
 
 .App-logo {
   height: 55vmin;
-  margin-top: -20%;
-  margin-bottom: -10%;
+  margin-top: -7.5%;
+  margin-bottom: -5%;
   pointer-events: none;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .App-header {
-  background-color: rgba(77, 210, 111, 0.93);
+  background-color: rgb(68, 53, 202);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

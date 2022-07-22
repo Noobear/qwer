@@ -19,7 +19,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <Container component="main" maxWidth="xs" style={{ marginTop: "2.5%" }}>
+            <Container component="main" maxWidth="xs" style={{ width:'100%', marginTop: "2.5%", paddingLeft:'7.5%', paddingRight:'7.5%'}}>
                 <form noValidate onSubmit={this.handleSubmit}>
                     {" "}
                     {/* submit 버튼을 누르면 handleSubmit이 실행됨. */}
@@ -53,7 +53,7 @@ class Login extends React.Component {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                color="success"
+                                color="primary"
                                 style={{ marginTop: "1.5%"}}
                             >
                                 로그인
@@ -64,15 +64,12 @@ class Login extends React.Component {
                                 href="/signup"
                                 fullWidth
                                 variant="contained"
-                                color="success"
-                                style={{ marginTop: "0.5%", marginBottom:"8.5%" }}
+                                color="primary"
+                                style={{ marginTop: "0.5%", marginBottom:"8.5%"}}
                             >
                                 회원가입
                             </Button>
                         </Grid>
-                        {/*<Link href="/signup" variant="body2" style={{ marginTop: "5.5%", marginBottom:"3.5%" }}>*/}
-                        {/*    <Grid item>회원 가입</Grid>*/}
-                        {/*</Link>*/}
                     </Grid>
                 </form>
             </Container>

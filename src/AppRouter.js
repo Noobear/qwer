@@ -31,7 +31,7 @@ class AppRouter extends React.Component{
                             <Route path="/signup" element={<SignUp />} />
                         </Routes>
                     </div>
-                    <Box style={{marginTop:"-5%"}}>
+                    <Box>
                         <Copyright />
                     </Box>
                 </BrowserRouter>
