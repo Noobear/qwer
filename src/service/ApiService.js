@@ -1,8 +1,8 @@
 // import { API_BASE_URL } from "../app-config";
-import {Functions} from "@mui/icons-material";
-import {useHistory} from 'react-router-dom';
+// import {Functions} from "@mui/icons-material";
+// import {useHistory} from 'react-router-dom';
 // const Authoriza = "Authorization";
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 
 export function call(api, method, request) {
     let headers = new Headers({
@@ -63,28 +63,28 @@ export function login(loginDTO) {
 
     return call("/login", "POST", loginDTO).then((response) => {
 
-        // if (response.headers.get("Authorization") && response.headers.get("refreshToken")) {
+        if (response.headers.get("Authorization") && response.headers.get("refreshToken")) {
+            // 로컬 스토리지에 토큰 저장
+
+            localStorage.setItem("Authorization",response.headers.get("Authorization"));
+            localStorage.setItem("refreshToken",response.headers.get("refreshToken"));
+
+            // token이 존재하는 경우
+            window.location.href = "/auth";
+
+        }
+        // if (response) {
+        //     const navigate = useNavigate();
         //     // 로컬 스토리지에 토큰 저장
         //
-        //     localStorage.setItem("Authorization",response.headers.get("Authorization"));
-        //     localStorage.setItem("refreshToken",response.headers.get("refreshToken"));
+        //     // localStorage.setItem("Authorization",response.headers.get("Authorization"));
+        //     // localStorage.setItem("refreshToken",response.headers.get("refreshToken"));
         //
         //     // token이 존재하는 경우
         //     // window.location.href = "/auth";
-        //     useHistory.push('/auth');
+        //     navigate('/auth', {replace: true});
+        //
         // }
-        if (response) {
-            const navigate = useNavigate();
-            // 로컬 스토리지에 토큰 저장
-
-            // localStorage.setItem("Authorization",response.headers.get("Authorization"));
-            // localStorage.setItem("refreshToken",response.headers.get("refreshToken"));
-
-            // token이 존재하는 경우
-            // window.location.href = "/auth";
-            navigate('/auth', {replace: true});
-
-        }
     });
 }
 
@@ -92,7 +92,6 @@ export function signout() {
     return call('/api/logout', 'GET', null).then(()=>{
         localStorage.removeItem("Authorization");
         localStorage.removeItem("refreshToken");
-
         window.location.href = "/";
     })
 
@@ -106,7 +105,10 @@ export function signout() {
     // window.location.href = "/login";
 }
 
-export function signup(userDTO) {
-
-    return call("/auth/signup", "POST", userDTO);
+export function signup(signUpDTO) {
+    return call("/join/admin", "POST", signUpDTO).then((response) => {
+        if (response.ok) {
+            window.location.href = "/"
+        }
+    })
 }

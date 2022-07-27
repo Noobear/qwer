@@ -1,16 +1,20 @@
 import './css/App.css';
 import React from 'react';
-import logo from './photo/wheel1.svg';
-import HomeLoginBar from './H_LoginBar'
+import HomeLoginBar from './HomeLoginBar'
+import Copyright from "./Copyright";
+import {Box} from "@mui/material";
 
 function App() {
   return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h3>Stop! Bus!</h3>
-          <HomeLoginBar></HomeLoginBar>
-        </header>
+          <div className="App-header">
+              {/*<img src={logo} className="App-logo" alt="logo"/>*/}
+              <h3>Healing Diary</h3>
+              <HomeLoginBar/>
+              <Box className={"App-Box"}>
+                  <Copyright/>
+              </Box>
+          </div>
       </div>
   );
 }

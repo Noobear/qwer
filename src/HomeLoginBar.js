@@ -10,8 +10,8 @@ class HomeLoginBar extends Component {
   render () {
    return ( 
     <div className="App">
-        <header className="App-LoginBar">
-            <Login></Login>
+        <header className="App-LoginBar" style={{width:'calc(150px + 20vw)'}}>
+            <Login ></Login>
         </header>
     </div>
    )

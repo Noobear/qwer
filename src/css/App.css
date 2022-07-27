@@ -1,11 +1,15 @@
 .App {
   text-align: center;
-  margin-bottom: 10%;
 }
 
+
+.min-options{
+  min-height: 100vh;
+  min-width: 100vw;
+}
 .App-logo {
   height: 55vmin;
-  margin-top: -7.5%;
+  margin-top: -2.5%;
   margin-bottom: -5%;
   pointer-events: none;
 }
@@ -17,14 +21,19 @@
 }
 
 .App-header {
-  background-color: rgb(68, 53, 202);
+  background: linear-gradient(rgb(44, 68, 180), rgb(0, 0, 0));
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 4vmin);
+  font-size: calc(10px + 5vmin);
   color: white;
+}
+
+.App-Box {
+  padding-top: 250px;
 }
 
 .App-LoginBar{
@@ -33,7 +42,6 @@
   display: flex;
   border-radius: calc(3px + 1vmin);
   color: black;
-  font-family:Verdana;
   font-size: calc(10px + 2vmin);
   border: 1px solid lightgray;
   outline: rgb(255, 255, 255);

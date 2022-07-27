@@ -19,7 +19,9 @@ class Login extends React.Component {
 
     render() {
         return (
-            <Container component="main" maxWidth="xs" style={{ width:'100%', marginTop: "2.5%", paddingLeft:'7.5%', paddingRight:'7.5%'}}>
+            <Container component="main" maxWidth="xs"
+                       style={{ width:'100%', marginTop: "2.5%",
+                           paddingLeft:'7.5%', paddingRight:'7.5%'}}>
                 <form noValidate onSubmit={this.handleSubmit}>
                     {" "}
                     {/* submit 버튼을 누르면 handleSubmit이 실행됨. */}

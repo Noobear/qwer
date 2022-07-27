@@ -9,22 +9,38 @@ function logout() {
     axios({
         method: 'GET',
         url: "/api/logout",
-        headers : {"Authorization":localStorage.getItem("Authorization"), "refreshToken":localStorage.getItem("refreshToken")}}
-    ).then(() =>{
+        headers : {
+            "Authorization":localStorage.getItem("Authorization"),
+            "refreshToken":localStorage.getItem("refreshToken")
+        }
+    }).then( () =>{
     localStorage.removeItem("Authorization");
     localStorage.removeItem("refreshToken");
-    window.location.href = "/";})
+    window.location.href = "/";}
+    )
 }
+//
+// function callname() {
+//     axios({
+//         method: 'GET',
+//         url: "/api/logout",
+//         headers : {"Authorization":localStorage.getItem("Authorization"), "
+//         refreshToken":localStorage.getItem("refreshToken")}}
+//     ).then(() =>{
+//         localStorage.removeItem("Authorization");
+//         localStorage.removeItem("refreshToken");
+//         window.location.href = "/";})
+// }
 
 function App_login() {
-  return (
+    return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h3>Stop! Bus!</h3>
-          <Bar></Bar>
+          {/*<img src={logo} className="App-logo" alt="logo"/>*/}
+          <h3>Healing Diary</h3>
+          <Bar>{}님 환영합니다.</Bar>
               <Button type="submit" onClick={logout}>
-                  로그아웃하기 으,ㅇ애
+                  로그아웃
               </Button>
         </header>
       </div>
