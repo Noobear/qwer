@@ -1,17 +1,21 @@
 import './css/App.css';
 import React from 'react';
-import HomeLoginBar from './HomeLoginBar'
 import Copyright from "./Copyright";
 import {Box} from "@mui/material";
+import Login from "./Login";
 
 function App() {
   return (
       <div className="App">
           <div className="App-header">
               {/*<img src={logo} className="App-logo" alt="logo"/>*/}
-              <h3>Healing Diary</h3>
-              <HomeLoginBar/>
-              <Box className={"App-Box"}>
+              <header>
+                  <h3>Healing Diary</h3>
+              </header>
+              <div className="App-LoginBar">
+                  <Login ></Login>
+              </div>
+              <Box className="App-Box">
                   <Copyright/>
               </Box>
           </div>

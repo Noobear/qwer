@@ -4,7 +4,7 @@ import "./css/copyright.css";
 import App from "./App";
 import SignUp from "./SignUp";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import App_login from "./AfterLogin/App_login";
+import App_user from "./AfterLogin/App_user";
 
 
 // function Copyright() {
@@ -26,7 +26,7 @@ class AppRouter extends React.Component{
                     <div>
                         <Routes>
                             <Route path="/" element={<App />} />
-                            <Route path="/auth" element={<App_login />} />
+                            <Route path="/auth" element={<App_user />} />
                             <Route path="/signup" element={<SignUp />} />
                         </Routes>
                     </div>

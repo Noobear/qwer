@@ -6,7 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 export default function MaterialUIPickers() {
-    const [value, setValue] = React.useState(new Date('2001-01-18'));
+    const [value, setValue] = React.useState(new Date('2000-01-18'));
 
     const handleChange = (newValue) => {
         setValue(newValue);
@@ -23,9 +23,7 @@ export default function MaterialUIPickers() {
                     name={"birthDay"}
                     onChange={handleChange}
                     renderInput={
-                    (params) => <TextField {...params}
-                                           name={"birthDay"}
-                                           />}
+                    (params) => <TextField {...params} name={"birthDay"}/>}
                 />
             </Stack>
         </LocalizationProvider>

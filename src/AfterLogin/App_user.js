@@ -32,7 +32,7 @@ function logout() {
 //         window.location.href = "/";})
 // }
 
-function App_login() {
+function App_user() {
     return (
       <div className="App">
         <header className="App-header">
@@ -47,4 +47,4 @@ function App_login() {
   );
 }
 
-export default App_login;
+export default App_user;
