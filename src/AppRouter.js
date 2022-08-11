@@ -21,17 +21,13 @@ import App_user from "./AfterLogin/App_user";
 class AppRouter extends React.Component{
     render() {
         return(
-            <div>
                 <BrowserRouter>
-                    <div>
                         <Routes>
                             <Route path="/" element={<App />} />
                             <Route path="/auth" element={<App_user />} />
                             <Route path="/signup" element={<SignUp />} />
                         </Routes>
-                    </div>
                 </BrowserRouter>
-            </div>
         );
     }
 }

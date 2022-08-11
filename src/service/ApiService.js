@@ -4,6 +4,8 @@
 // const Authoriza = "Authorization";
 // import {useNavigate} from 'react-router-dom';
 
+import axios from "axios";
+
 export function call(api, method, request) {
     let headers = new Headers({
         "Content-Type": "application/json",
@@ -32,22 +34,16 @@ export function call(api, method, request) {
     if (request) {
         // GET method
         options.body = JSON.stringify(request);
-
         console.log("request : ",headers);
-
-
-        // console.log("options.body : ",options.body);
-        // console.log("options.url : ",options.url);
     }
     return fetch(options.url, options)
         .then((response) => {
                 if (!response.ok) {
                     // response.ok가 true이면 정상적인 리스폰스를 받은것, 아니면 에러 리스폰스를 받은것.
-                    return Promise.reject(response);
+                    return (Promise.reject(response));
                 }
                 return response;
             })
-
         .catch((error) => {
             // 추가된 부분
             console.log("error.status : ",error.status);
@@ -62,28 +58,41 @@ export function call(api, method, request) {
 export function login(loginDTO) {
 
     return call("/login", "POST", loginDTO).then((response) => {
-
-        if (response.headers.get("Authorization") && response.headers.get("refreshToken")) {
+        if (response.ok) {
+            console.log('222'+response.headers.get("Authorization"));
             // 로컬 스토리지에 토큰 저장
-
             localStorage.setItem("Authorization",response.headers.get("Authorization"));
             localStorage.setItem("refreshToken",response.headers.get("refreshToken"));
-
             // token이 존재하는 경우
-            window.location.href = "/auth";
 
+            const Auth = localStorage.getItem("Authorization");
+            const refresh = localStorage.getItem("refreshToken");
+
+            axios.defaults.headers.common[
+                "Authorization"
+                ] = `${Auth}`
+
+            axios.defaults.headers.common[
+                "refreshToken"
+                ]=`${refresh}`
+
+            axios.defaults.headers.common[
+                "Content-Type"
+                ]='application/json'
+
+
+            console.log(axios.defaults.headers.common);
+
+            window.location.href = "/auth"; // 라우터로 변경
         }
         // if (response) {
         //     const navigate = useNavigate();
         //     // 로컬 스토리지에 토큰 저장
-        //
         //     // localStorage.setItem("Authorization",response.headers.get("Authorization"));
         //     // localStorage.setItem("refreshToken",response.headers.get("refreshToken"));
-        //
         //     // token이 존재하는 경우
         //     // window.location.href = "/auth";
         //     navigate('/auth', {replace: true});
-        //
         // }
     });
 }
@@ -94,16 +103,15 @@ export function signout() {
         localStorage.removeItem("refreshToken");
         window.location.href = "/";
     })
-
     // const e1 = localStorage.getItem("Authorization");
     // const e2 = localStorage.getItem("refreshToken");
     // if (e1 && e2 !== null) {
     //     headers.append("Authorization", e1);
     //     headers.append("Authorization", e2);
     // }
-
-    // window.location.href = "/login";
 }
+
+
 
 export function signup(signUpDTO) {
     return call("/join/admin", "POST", signUpDTO).then((response) => {

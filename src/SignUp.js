@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {Button, Box,  TextField, Grid, Container, Typography} from "@mui/material";
+import {Button, TextField, Grid, Container, Typography} from "@mui/material";
 import { signup } from "./service/ApiService";
 import ComboBox from "./ComboBox";
 import RowRadioButtonsGroup from './RowRadioButtonsGroup'
 import Copyright from "./Copyright";
 import MaterialUIPickers from "./selectCalendar";
 import DaumPost from "./DaumPost";
+import {Axios} from "axios";
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -25,13 +26,23 @@ class SignUp extends React.Component {
         const address = data.get("address"); // 주소
         const gender = data.get("gender"); // 성별
         const birthDay = data.get("birthDay"); // 생일
-        console.log("realName: "+realName);
-        console.log("email: "+ username);
-        console.log("password: "+password);
-        console.log("address: "+address);
-        console.log("gender: "+gender);
-        console.log("birthDay: "+birthDay);
+        const postData = {realName:data.get("realName")}
+        console.log("realName: "+realName); console.log("email: "+ username);  console.log("password: "+password);
+        console.log("address: "+address); console.log("gender: "+gender); console.log("birthDay: "+birthDay);
+
+
         if (password === password_ch){
+            // Axios
+            //     .call('/join/admin', postData)
+            //     .then(function (response) {
+            //         console.log(response, '성공');
+            //         // history.push('/login');
+            //         document.location.href='/login';
+            //     })
+            //     .catch(function (err) {
+            //         console.log(err);
+            //     });
+
             signup({
                 realName:realName,password:password,
                 username:username,address:address,
@@ -39,9 +50,10 @@ class SignUp extends React.Component {
                 (response) => {
                     // 계정 생성 성공 시 login페이지로 리디렉트
                     return (
-                        alert('회원가입을 환영합니다. ' + realName + "님.")
+                        alert('회원가입을 환영합니다. ' + realName + "님."),
+                        window.location.href = "/" // 라우터로 바꾸는 작업 필요
                     )
-                    window.location.href = "/"; // 라우터로 바꾸는 작업 필요
+
                 }
             );
         }
@@ -50,12 +62,16 @@ class SignUp extends React.Component {
     }
 
     state = {
-        name: '',
+        realName: '',
+        name_ad: '이름을 입력하세요!',
         password: '',
         password_ch: '',
-        checkPassword: '패스워드 입력을 해주세요',
+        checkPassword: ' 필수 입력 값입니다!',
+        advise:' 비밀번호를 입력해주세요!',
     };
 
+    //📝 비밀번호를 입력해주세요!
+//비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
@@ -63,33 +79,70 @@ class SignUp extends React.Component {
         // 파라미터로 받은 event.target.name이 name 아닐 경우에만 handleCheck함수 실행
         // setTimeout으로 딜레이를 준 이유는 딜레이를 주지 않았을 경우 setState 변경된 값이 handleCheck에서 바로 반영되지 않음
         if (e.target.name !== 'realName') {
-            setTimeout(this.handleCheck, 100);
+            setTimeout(this.handleCheck, 1);
         }
     };
 
     handleCheck = () => {
-        const { password, password_ch } = this.state;
+        var RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*()+|=])[A-Za-z\d~!@#$%^&*()+|=]{8,16}$/;
+        const {realName, password, password_ch } = this.state;
+
+        if (realName.length < 1){
+            this.setState({
+                name_ad: '이름을 입력하세요!',
+            });
+        }else{
+            this.setState({
+                name_ad: '',
+            });
+        }
         // 비밀번호 무입력 상태일 때와 둘 중에 하나의 값이 입력 상태가 아닐때
         if (password.length < 1 || password_ch.length < 1) {
             this.setState({
-                checkPassword: '📝패스워드 입력📝',
+                checkPassword: '필수 입력 값입니다!',
             });
+            console.log('advise: '+ this.state.password);
+            if (!RegExp.test(password)){
+                this.setState({
+                    advise: ' 비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요!',
+                });
+                if (RegExp.test(password)){
+                    this.setState({
+                        advise: '',
+                    });
+                }
+            }else{
+                this.setState({
+                    advise: '',
+                });
+            }
         } else if (password === password_ch) { // 비밀번호가 같다면 일치
             this.setState({
-                checkPassword: '✅일치 ✅',
+                checkPassword: '',
             });
+            console.log(password);
+            if (!RegExp.test(password)){
+                this.setState({
+                    advise: ' 비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요!',
+                });
+            }else{
+                this.setState({
+                    advise: '',
+                });
+            }
         } else { // 비밀번호가 같지 않다면 불일치
             this.setState({
-                checkPassword: '❌불일치 ❌',
+                checkPassword: ' 비밀번호가 같지 않습니다.',
             });
         }
     };
+
     render() {
-        const {realName, password, password_ch, checkPassword} = this.state;
+        const {name_ad, realName, password, password_ch, checkPassword, advise} = this.state;
         return (
             <div className={'min-options'}>
             <Container component="main" maxWidth="xs"
-                       style={{ marginTop: "8%", marginBottom:'8%' }}>
+                       style={{ marginTop: "8%", marginBottom:'8%'}}>
                 <form noValidate onSubmit={this.handleSubmit}>
                     <Grid container spacing={1.5}>
                         <Grid item xs={12}>
@@ -98,7 +151,8 @@ class SignUp extends React.Component {
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField
+                            <div style={{fontSize:'14px', margin:"0"}}>
+                                <TextField
                                 variant="outlined"
                                 required
                                 fullWidth
@@ -107,7 +161,8 @@ class SignUp extends React.Component {
                                 name="realName" //필수값
                                 onChange={this.handleChange} value={realName}
                                 autoFocus
-                            />
+                            />{name_ad}
+                            </div>
                         </Grid>
                         <Grid item xs={5.5}>
                             <TextField
@@ -125,6 +180,7 @@ class SignUp extends React.Component {
                         </Grid>
                         <Grid></Grid>
                         <Grid item xs={12}>
+                            <div style={{fontSize:'14px', margin:"0"}} >
                             <TextField
                                 variant="outlined"
                                 fullWidth
@@ -133,9 +189,11 @@ class SignUp extends React.Component {
                                 type="password"
                                 id="password"
                                 onChange={this.handleChange} value={password}
-                            />
+                            />{advise}
+                            </div>
                         </Grid>
                         <Grid item xs={12}>
+                            <div style={{fontSize:'14px', margin:"0"}} >
                             <TextField
                                 variant="outlined"
                                 fullWidth
@@ -145,6 +203,8 @@ class SignUp extends React.Component {
                                 id="password_ch"
                                 onChange={this.handleChange} value={password_ch}
                             />
+                            {checkPassword}<br/>
+                            </div>
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
@@ -188,15 +248,8 @@ class SignUp extends React.Component {
                     </Grid>
                 </form>
             </Container>
-                <Container component="main" maxWidth="xs"
-                           style={{ marginTop: "8%", marginBottom:'8%' }}>
-                <span>이름 : {realName} </span><br/>
-                <span>비밀번호 : {password}</span><br/>
-                <span>비밀번호확인 : {password_ch}</span><br/>
-                <span>일치여부 : {checkPassword}</span><br/>
-                </Container>
         <footer align={"center"} style={{height:"10px"}}>
-            <Copyright />
+            <Copyright/>
         </footer>
         </div>
         );
