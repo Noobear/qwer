@@ -22,12 +22,12 @@
 .App-header {
   background: linear-gradient(rgb(44, 68, 180), rgb(0, 0, 0));
   min-height: 100vh;
+  max-height: 120vh;
   min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 5vmin);
   color: white;
 }
 
@@ -36,16 +36,15 @@
 }
 
 .App-LoginBar{
-  width: calc(150px + 20vmin);
-  min-height: 4vh;
+  width: calc(150px + 25vmin);
+  min-height: 22vh;
   display: flex;
   border-radius: calc(3px + 1vmin);
   color: black;
-  font-size: calc(10px + 2vmin);
   border: 1px solid lightgray;
   outline: rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
-  margin-top:100px;
+  margin-top:80px;
 }
 
 
@@ -62,3 +61,17 @@
   }
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15%;
+  min-height: 100vh;
+}
+
+.content {
+  font-family: system-ui, serif;
+  font-size: 2rem;
+  padding: 3rem;
+  border-radius: 1rem;
+}

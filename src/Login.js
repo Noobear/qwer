@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/font.css";
 import { login } from "./service/ApiService";
 import {Button, TextField, Grid, Container} from "@mui/material";
 
@@ -15,18 +16,20 @@ class Login extends React.Component {
         let password = data.get("password");
         // ApiService 의 login 메서드를 사용 해 로그인.
         login({ username: username, password: password });
+        // window.location.href='/main'
     }
 
+
     render() {
+
         return (
             <Container component="main" maxWidth="xs"
-                       style={{ width:'100%', marginTop: "2.5%",
-                           paddingLeft:'7.5%', paddingRight:'7.5%'}}>
+                       style={{ width:'1200px', marginTop: "2.5%",}}>
                 <form noValidate onSubmit={this.handleSubmit}>
                     {" "}
                     {/* submit 버튼을 누르면 handleSubmit이 실행됨. */}
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}
+                    <Grid container spacing={4}>
+                        <Grid item xs={16}
                               style={{ marginTop: "0.25%" }}>
                             <TextField
                                 variant="standard"
@@ -35,10 +38,13 @@ class Login extends React.Component {
                                 id="username"
                                 label="이메일 주소"
                                 name="username"
-                                style={{ marginTop: "-0.25%" }}
+                                size={"normal"}
+                                style={{ marginTop: "-0.25%",}}
+                                InputProps={{ style: { fontSize: 22 , fontFamily: "MabinogiClassicR"} }}
+                                InputLabelProps={{ style: { fontSize: 24 , fontFamily: "MabinogiClassicR"} }}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={16}>
                             <TextField
                                 variant="standard"
                                 required
@@ -48,9 +54,11 @@ class Login extends React.Component {
                                 type="password"
                                 id="password"
                                 style={{ marginTop: "-0.25%" }}
+                                InputProps={{ style: { fontSize: 22, fontFamily: "MabinogiClassicR"} }}
+                                InputLabelProps={{ style: { fontSize: 22 , fontFamily: "MabinogiClassicR"} }}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={16}>
                             <Button
                                 type="submit"
                                 fullWidth
@@ -58,18 +66,18 @@ class Login extends React.Component {
                                 color="primary"
                                 style={{ marginTop: "1.5%"}}
                             >
-                                로그인
+                                <p className={"Font_ma"} style={{margin:"0", fontSize:"28px"}}>로그인</p>
                             </Button>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={16}>
                             <Button
-                                href="/signup"
+                                href="/sign"
                                 fullWidth
                                 variant="contained"
                                 color="primary"
                                 style={{ marginTop: "0.5%", marginBottom:"8.5%"}}
                             >
-                                회원가입
+                                <p className={"Font_ma"} style={{margin:"0", fontSize:"28px"}}>회원가입</p>
                             </Button>
                         </Grid>
                     </Grid>

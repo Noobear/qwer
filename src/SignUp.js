@@ -9,10 +9,12 @@ import DaumPost from "./DaumPost";
 import {Axios} from "axios";
 
 class SignUp extends React.Component {
+
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     handleSubmit(event) {
         event.preventDefault();
         // 오브젝트에서 form에 저장된 데이터를 맵의 형태로 바꿔줌.
@@ -26,7 +28,6 @@ class SignUp extends React.Component {
         const address = data.get("address"); // 주소
         const gender = data.get("gender"); // 성별
         const birthDay = data.get("birthDay"); // 생일
-        const postData = {realName:data.get("realName")}
         console.log("realName: "+realName); console.log("email: "+ username);  console.log("password: "+password);
         console.log("address: "+address); console.log("gender: "+gender); console.log("birthDay: "+birthDay);
 
@@ -42,6 +43,8 @@ class SignUp extends React.Component {
             //     .catch(function (err) {
             //         console.log(err);
             //     });
+            alert('회원가입을 환영합니다. ' + realName + "님.");
+            window.location.href = "/" // 라우터로 바꾸는 작업 필요
 
             signup({
                 realName:realName,password:password,
@@ -141,9 +144,10 @@ class SignUp extends React.Component {
         const {name_ad, realName, password, password_ch, checkPassword, advise} = this.state;
         return (
             <div className={'min-options'}>
-            <Container component="main" maxWidth="xs"
-                       style={{ marginTop: "8%", marginBottom:'8%'}}>
-                <form noValidate onSubmit={this.handleSubmit}>
+            <Container maxWidth="xs"
+                       style={{ paddingTop:"100px", paddingBottom:"200px"}}>
+                <form noValidate onSubmit={this.handleSubmit}
+                      style={{alignItems:"flex-start"}}>
                     <Grid container spacing={1.5}>
                         <Grid item xs={12}>
                             <Typography component="h1" variant="h5">
@@ -151,7 +155,7 @@ class SignUp extends React.Component {
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <div style={{fontSize:'14px', margin:"0"}}>
+                            <div style={{fontSize:'18px', margin:"0"}}>
                                 <TextField
                                 variant="outlined"
                                 required
@@ -180,7 +184,7 @@ class SignUp extends React.Component {
                         </Grid>
                         <Grid></Grid>
                         <Grid item xs={12}>
-                            <div style={{fontSize:'14px', margin:"0"}} >
+                            <div style={{fontSize:'18px', margin:"0"}} >
                             <TextField
                                 variant="outlined"
                                 fullWidth
@@ -193,7 +197,7 @@ class SignUp extends React.Component {
                             </div>
                         </Grid>
                         <Grid item xs={12}>
-                            <div style={{fontSize:'14px', margin:"0"}} >
+                            <div style={{fontSize:'18px', margin:"0"}} >
                             <TextField
                                 variant="outlined"
                                 fullWidth

@@ -1,4 +1,5 @@
 import './css/App.css';
+import './css/font.css';
 import React from 'react';
 import Copyright from "./Copyright";
 import {Box} from "@mui/material";
@@ -8,9 +9,8 @@ function App() {
   return (
       <div className="App">
           <div className="App-header">
-              {/*<img src={logo} className="App-logo" alt="logo"/>*/}
-              <header>
-                  <h3>Healing Diary</h3>
+              <header style={{marginBottom:"-30px"}}>
+                  <h3 className={"Font_ma"} style={{fontSize:"180px"}}>My Diary</h3>
               </header>
               <div className="App-LoginBar">
                   <Login ></Login>
