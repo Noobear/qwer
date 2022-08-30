@@ -30,7 +30,7 @@ function Read() {
                 console.log(error);
             })
     }
-    // const [data, setData] = useState([]);
+    //   const [data, setData] = useState([]);
     // const Nav = useNavigate();
     //
     // useEffect(() => {
@@ -56,64 +56,64 @@ function Read() {
     return (
         <Box style={{paddingTop:"50px"}} >
             <Box sx={{ border: '6px solid' }}  width="43%" style={{marginLeft:"90px", height:"800px"}}>
-                    {/*<table className={"Font_ma"} width="100%" style={{height:"100%"}}>*/}
-                {/*    <thead align={"center"} style={{fontSize:"48px"}}>*/}
-                {/*    <tr><td colSpan="7"> {l} </td></tr>*/}
-                {/*    <tr><td colSpan="7">{r}</td></tr>*/}
-                {/*    </thead>*/}
-                {/*    <tbody align={"center"} style={{fontSize:"40px"}}>*/}
-                {/*    <tr>*/}
-                {/*        <td style={{color:"red"}}>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td style={{color:"deepskyblue"}}>토</td></tr>*/}
-                {/*    <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>*/}
-                {/*    <tr><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>7</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>8</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>9</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>10</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>11</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>12</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>13</Button>*/}
-                {/*    </td></tr>*/}
-                {/*    <tr><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>14</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>15</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>16</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>17</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>18</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>19</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>20</Button>*/}
-                {/*    </td></tr>*/}
-                {/*    <tr><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>21</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD1()}>22</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD(23)}>23</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD(24)}>24</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD(25)}>25</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD(26)} >26</Button>*/}
-                {/*    </td><td>*/}
-                {/*        <Button style={{fontSize:"40px", margin:"-5%"}}>27</Button>*/}
-                {/*    </td></tr>*/}
-                {/*    <tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>*/}
-                {/*    </tbody>*/}
-                {/*</table>*/}
-                {/*<Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD} >26</Button>*/}
+                    <table className={"Font_ma"} width="100%" style={{height:"100%"}}>
+                    <thead align={"center"} style={{fontSize:"48px"}}>
+                    <tr><td colSpan="7"> {l} </td></tr>
+                    <tr><td colSpan="7">{r}</td></tr>
+                    </thead>
+                    <tbody align={"center"} style={{fontSize:"40px"}}>
+                    <tr>
+                        <td style={{color:"red"}}>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td style={{color:"deepskyblue"}}>토</td></tr>
+                    <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+                    <tr><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>7</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>8</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>9</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>10</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>11</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>12</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>13</Button>
+                    </td></tr>
+                    <tr><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>14</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>15</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>16</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>17</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>18</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>19</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>20</Button>
+                    </td></tr>
+                    <tr><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>21</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD}>22</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD}>23</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD}>24</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD}>25</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD} >26</Button>
+                    </td><td>
+                        <Button style={{fontSize:"40px", margin:"-5%"}}>27</Button>
+                    </td></tr>
+                    <tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+                <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD} >26</Button>
             </Box>
         </Box>
     )

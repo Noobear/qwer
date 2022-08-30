@@ -32,6 +32,7 @@ class Login extends React.Component {
                         <Grid item xs={16}
                               style={{ marginTop: "0.25%" }}>
                             <TextField
+                                // color = 'warning'
                                 variant="standard"
                                 required
                                 fullWidth
@@ -60,10 +61,11 @@ class Login extends React.Component {
                         </Grid>
                         <Grid item xs={16}>
                             <Button
+
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                color="primary"
+                                color="warning"
                                 style={{ marginTop: "1.5%"}}
                             >
                                 <p className={"Font_ma"} style={{margin:"0", fontSize:"28px"}}>로그인</p>
@@ -74,7 +76,7 @@ class Login extends React.Component {
                                 href="/sign"
                                 fullWidth
                                 variant="contained"
-                                color="primary"
+                                color="warning"
                                 style={{ marginTop: "0.5%", marginBottom:"8.5%"}}
                             >
                                 <p className={"Font_ma"} style={{margin:"0", fontSize:"28px"}}>회원가입</p>

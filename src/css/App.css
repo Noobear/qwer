@@ -20,7 +20,10 @@
 }
 
 .App-header {
-  background: linear-gradient(rgb(44, 68, 180), rgb(0, 0, 0));
+  /*background: linear-gradient(190deg, rgba(53, 59, 180, 0.8) 20%, rgb(178, 118, 175), rgb(243, 192, 143));*/
+  /*background: linear-gradient( 45deg, Violet, Orange);*/
+  background-image : url(/Users/kimkwon-woong/IdeaProjects/test0718/src/photo/test3.jpeg);
+  text-align: center;
   min-height: 100vh;
   max-height: 120vh;
   min-width: 100vw;
@@ -29,6 +32,9 @@
   align-items: center;
   justify-content: center;
   color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .App-Box {

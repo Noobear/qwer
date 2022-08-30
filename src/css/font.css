@@ -6,7 +6,15 @@
 }
 
 .Font_ma {
-    font-family: MabinogiClassicR, serif;
+    font-family: UhBeemysen, serif;
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'UhBeemysen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeemysen.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
