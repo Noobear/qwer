@@ -7,12 +7,6 @@ import {Button, Grid, Typography } from "@mui/material";
 import axios from "axios";
 import MenuAppBar from "./MenuAppBar";
 
-function main() {
-    alert("작성이 완료되었습니다!")
-
-    // window.location.href='main'
-}
-
 class Create extends React.Component {
 
     constructor(props) {
@@ -25,33 +19,35 @@ class Create extends React.Component {
         // 오브젝트에서 form에 저장된 데이터를 맵의 형태로 바꿔줌.
         const data = new FormData(event.target);
         const contentSet = data.get("contentSet"); // 내용
-        // const titleSet = data.get("titleSet"); // 제목
         const file = data.get("file");
 
-        const Ang = {
+        const GetTEXT = {
             'content' : contentSet,
-            // 'title': titleSet,
         };
-        const josn = JSON.stringify(Ang);
-        const noticeDTO = new Blob([josn], { type: "application/json" });
 
-        // console.log('title: '+ titleSet);
+        const SetTEXT = JSON.stringify(GetTEXT);
+        const diaryDTO = new Blob([SetTEXT], { type: "application/json" });
+
         console.log('content: '+ contentSet);
         console.log('file: '+ file);
 
         axios({
             method: 'POST',
-            url: "/api/notice/admin",
+            url: "/diary/regist",
             headers : {
                 'Content-Type' : 'multipart/form-data',
                 'Authorization' : localStorage.getItem("Authorization"),
                 'refreshToken' : localStorage.getItem("refreshToken"),
             },
             data:{
-                noticeDTO,
+                diaryDTO,
                 file : file,
             }
         })
+        //     .then(setTimeout(function() {
+        //     alert('It Works!');
+        //     window.location.href='/main'
+        // }, 8000))
     }
 
     render () {
@@ -71,15 +67,10 @@ class Create extends React.Component {
                     <div className="wrapper">
                         <div className="content">
                             <form  noValidate onSubmit={this.handleSubmit}>
-                                <Typography
-                                    className={"Font_ma"}
-                                    style={{
+                                <Typography style={{
                                         width: '100%', height:"50px",
                                         fontSize: "35px", marginBottom:"16px",
-                                        // fontFamily:"AppleGothic",
-                                        fontWeight:"bold"
-                                    }}
-                                >{time.year+"."+time.month+"."+time.date}</Typography>
+                                        fontWeight:"bold"}}>{time.year+"."+time.month+"."+time.date}</Typography>
                                 <textarea
                                     className={"Font_ma"}
                                     id="contentSet"

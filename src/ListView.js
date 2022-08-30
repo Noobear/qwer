@@ -10,17 +10,17 @@ function ListView() {
 
     useEffect(() => {
         axios({
-            method: 'get',
-            url: "/api/notice/admin",
+            method: 'GET',
+            url: "/diary/show",
             headers : {
                 'refreshToken' : localStorage.getItem("refreshToken"),
                 'Authorization': localStorage.getItem("Authorization"),
             },
         }).then((response) => {
             setData(response.data);
-            console.log("SRC: " + response.data[4].imgUrl);
-            console.log("response : " + response);
-            console.log("res.data : " + response.data);
+            // console.log("SRC: " + response.data[4].imgUrl);
+            // console.log("response : " + response);
+            // console.log("res.data : " + response.data);
         }).catch((error) => {
             console.log(error);
         })
@@ -39,7 +39,7 @@ function ListView() {
                                 <div style={{marginTop:"30px"}}>
                                 <pre style={{color:"white"}}>?
                                 </pre>
-                                    { " 작성날짜 : " + data.noticeDTO.title}
+                                    { " 작성날짜 : " + data.diaryDTO.title}
                                 </div>
                                 <p align={"center"}>
                                     <p style={{background:"lightgrey",width:"270px",}} >
@@ -47,12 +47,12 @@ function ListView() {
                                     </p>
                                 </p>
                                 <div >
-                                    {data.noticeDTO.content}
+                                    {data.diaryDTO.content}
                                 </div>
                                 <pre>
                             </pre>
                                 <div>
-                                    오늘의 기분 :  {data.noticeDTO.sentimental}
+                                    오늘의 기분 :  {data.diaryDTO.sentimental}
                                 </div>
                                 <pre style={{color:"white"}}>_
                         </pre>

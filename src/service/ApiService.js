@@ -106,7 +106,7 @@ export function signOut() {
 }
 
 export function signup(signUpDTO) {
-    return call("/join/admin", "POST", signUpDTO).then((response) => {
+    return call("/join", "POST", signUpDTO).then((response) => {
         if (response.ok) {
             window.location.href = "/"
         }

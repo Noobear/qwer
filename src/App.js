@@ -8,9 +8,10 @@ import Login from "./Login";
 function App() {
   return (
       <div className="App-header" >
+
           <header style={{marginBottom:"-30px"}}>
-              <h3 className={"Font_ma"} style={{fontSize:"80px", marginTop:0, marginBottom:100}}>
-                  あ な た は に な り ま す。
+              <h3 className={"text-focus-in"} style={{fontSize:"80px", marginTop:0, marginBottom:100}}>
+                  들려줘, 너의 이야기.
               </h3>
           </header>
           <Login ></Login>
