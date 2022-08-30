@@ -9,16 +9,14 @@ function App() {
   return (
       <div className="App-header" >
           <header style={{marginBottom:"-30px"}}>
-              <h3 className={"Font_ma"} style={{fontSize:"280px", marginTop:0, marginBottom:100}}>My Diary</h3>
+              <h3 className={"Font_ma"} style={{fontSize:"80px", marginTop:0, marginBottom:100}}>
+                  あ な た は に な り ま す。
+              </h3>
           </header>
-
-              <div className="App-LoginBar">
-                  <Login ></Login>
-              </div>
-              <Box className="App-Box">
-                  <Copyright/>
-              </Box>
-
+          <Login ></Login>
+          <Box className="App-Box">
+              <Copyright/>
+          </Box>
       </div>
   );
 }

@@ -1,12 +1,12 @@
-@font-face {
-    font-family: 'MabinogiClassicR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/MabinogiClassicR.woff2') format('woff2');
+.Font_ma {
+    font-family: Arita-buri-SemiBold, serif;
     font-weight: normal;
     font-style: normal;
 }
 
-.Font_ma {
-    font-family: UhBeemysen, serif;
+@font-face {
+    font-family: 'MabinogiClassicR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/MabinogiClassicR.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -18,3 +18,9 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Arita-buri-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

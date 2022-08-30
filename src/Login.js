@@ -41,8 +41,8 @@ class Login extends React.Component {
                                 name="username"
                                 size={"normal"}
                                 style={{ marginTop: "-0.25%",}}
-                                InputProps={{ style: { fontSize: 22 , fontFamily: "MabinogiClassicR"} }}
-                                InputLabelProps={{ style: { fontSize: 24 , fontFamily: "MabinogiClassicR"} }}
+                                InputProps={{ style: { fontSize: 22 , fontFamily: "Arita-buri-SemiBold"} }}
+                                InputLabelProps={{ style: { fontSize: 24 , fontFamily: "Arita-buri-SemiBold"} }}
                             />
                         </Grid>
                         <Grid item xs={16}>
@@ -55,20 +55,19 @@ class Login extends React.Component {
                                 type="password"
                                 id="password"
                                 style={{ marginTop: "-0.25%" }}
-                                InputProps={{ style: { fontSize: 22, fontFamily: "MabinogiClassicR"} }}
-                                InputLabelProps={{ style: { fontSize: 22 , fontFamily: "MabinogiClassicR"} }}
+                                InputProps={{ style: { fontSize: 22, fontFamily: "Arita-buri-SemiBold"} }}
+                                InputLabelProps={{ style: { fontSize: 22 , fontFamily: "Arita-buri-SemiBold"} }}
                             />
                         </Grid>
                         <Grid item xs={16}>
                             <Button
-
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 color="warning"
                                 style={{ marginTop: "1.5%"}}
                             >
-                                <p className={"Font_ma"} style={{margin:"0", fontSize:"28px"}}>로그인</p>
+                                <p className={"Font_ma"} style={{margin:"0", fontSize:"20px"}}>로그인</p>
                             </Button>
                         </Grid>
                         <Grid item xs={16}>
@@ -79,7 +78,7 @@ class Login extends React.Component {
                                 color="warning"
                                 style={{ marginTop: "0.5%", marginBottom:"8.5%"}}
                             >
-                                <p className={"Font_ma"} style={{margin:"0", fontSize:"28px"}}>회원가입</p>
+                                <p className={"Font_ma"} style={{margin:"0", fontSize:"20px"}}>회원가입</p>
                             </Button>
                         </Grid>
                     </Grid>
