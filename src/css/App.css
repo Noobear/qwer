@@ -21,8 +21,8 @@
 
 .App-header {
   /*background: linear-gradient(190deg, rgba(53, 59, 180, 0.8) 20%, rgb(178, 118, 175), rgb(243, 192, 143));*/
-  /*background: linear-gradient( 45deg, Violet, Orange);*/
-  background-image : url(/Users/kimkwon-woong/IdeaProjects/test0718/src/photo/test4.jpeg);
+  /*background: linear-gradient( 45deg, rgba(0, 0, 0, 0.32), Orange);*/
+  background-image : url(/Users/Woong/Downloads/SPA/qwer/src/photo/test44.jpg);
   text-align: center;
   min-height: 100vh;
   max-height: 120vh;
@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: white ;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -46,7 +46,7 @@
   min-height: 22vh;
   display: flex;
   border-radius: calc(3px + 1vmin);
-  color: black;
+  color: #000000;
   border: 1px solid lightgray;
   outline: rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);

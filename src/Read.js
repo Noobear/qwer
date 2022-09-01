@@ -7,6 +7,14 @@ import axios from "axios";
 import "./css/font.css";
 import {useNavigate} from 'react-router-dom';
 
+
+function oodd(){
+    window.location.href='/main/30'
+}
+
+
+
+
 function Read() {
 
     const [value, onChange] = useState(new Date());
@@ -110,10 +118,13 @@ function Read() {
                     </td><td>
                         <Button style={{fontSize:"40px", margin:"-5%"}}>27</Button>
                     </td></tr>
-                    <tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>
+                    <tr><td>28</td><td>29</td>
+                        <td>
+                            <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oodd} >30</Button>
+                        </td>
+                        <td>31</td><td></td><td></td><td></td></tr>
                     </tbody>
                 </table>
-                <Button style={{fontSize:"40px", margin:"-5%"}} onClick={oD} >26</Button>
             </Box>
         </Box>
     )

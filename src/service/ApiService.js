@@ -89,7 +89,7 @@ export function login(loginDTO) {
 export function signOut() {
     axios({
         method: 'delete',
-        url: "/api/logout",
+        url: "/signout",
         headers : {
             'Authorization' : localStorage.getItem("Authorization"),
             'refreshToken' : localStorage.getItem("refreshToken"),
@@ -99,16 +99,17 @@ export function signOut() {
             localStorage.removeItem("Authorization")
             localStorage.removeItem("refreshToken")
             window.location.href = "/"})
-        .catch( () => {
-            localStorage.removeItem("Authorization")
-            localStorage.removeItem("refreshToken")
-            window.location.href = "/"}); // 토큰 만료 되어있을 때에도 일단 로그아웃은 가능하게 만듬.
+        .catch( (error) => {
+            console.log(error)
+        }); // 토큰 만료 되어있을 때에도 일단 로그아웃은 가능하게 만듬.
 }
 
 export function signup(signUpDTO) {
     return call("/join", "POST", signUpDTO).then((response) => {
         if (response.ok) {
-            window.location.href = "/"
+            // window.location.href = "/"
         }
     })
 }
+
+

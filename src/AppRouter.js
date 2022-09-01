@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import "./css/index.css";
 import "./css/copyright.css";
 import App from "./App";
@@ -12,18 +12,9 @@ import Open0822 from "./Open0822";
 import Open0823 from "./Open0823";
 import Open0824 from "./Open0824";
 import Open0825 from "./Open0825";
-import Open0826 from "./Open0826";
-import TEST from "./test"
-// function Copyright() {
-//     return(
-//         <div className={"CS"}>
-//         <Typography variant={"overline"} color="white" align={"center"}>{"Copyright _ "}
-//         {new Date().getFullYear()}
-//             {". "}By Cloud Server Developer : 6-5{"."}
-//         </Typography>
-//         </div>
-//     );
-// }
+import Open0830 from "./Open0830";
+import TEST from "./test";
+import Rewrite from "./Rewrite";
 
 class AppRouter extends React.Component{
     render() {
@@ -39,8 +30,9 @@ class AppRouter extends React.Component{
                 <Route path="/main/23" element={<Open0823 />} />
                 <Route path="/main/24" element={<Open0824 />} />
                 <Route path="/main/25" element={<Open0825 />} />
-                <Route path="/main/26" element={<Open0826 />} />
+                <Route path="/main/30" element={<Open0830 />} />
                 <Route path={"/test"} element={<TEST/>}/>
+                <Route path={"/rewrite"} element={<Rewrite/>}/>
             </Routes>
             </BrowserRouter>
         );

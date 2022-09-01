@@ -43,8 +43,7 @@ class SignUp extends React.Component {
             //     .catch(function (err) {
             //         console.log(err);
             //     });
-            alert('회원가입을 환영합니다. ' + realName + "님.");
-            window.location.href = "/" // 라우터로 바꾸는 작업 필요
+            // window.location.href = "/" // 라우터로 바꾸는 작업 필요
 
             signup({
                 realName:realName,password:password,
@@ -53,8 +52,8 @@ class SignUp extends React.Component {
                 (response) => {
                     // 계정 생성 성공 시 login페이지로 리디렉트
                     return (
-                        alert('회원가입을 환영합니다. ' + realName + "님."),
-                        window.location.href = "/" // 라우터로 바꾸는 작업 필요
+                        alert('회원가입을 환영합니다. ' + realName + "님.")
+                        // window.location.href = "/" // 라우터로 바꾸는 작업 필요
                     )
 
                 }

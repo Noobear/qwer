@@ -24,39 +24,39 @@ class Login extends React.Component {
 
         return (
             <Container component="main" maxWidth="xs"
-                       style={{ width:'1200px', marginTop: "2.5%",}}>
+                       style={{ width:'1200px', paddingTop:"12px",marginTop: "5%", background:"rgba(0,0,0,0.0)", borderRadius:"15px"}}>
                 <form noValidate onSubmit={this.handleSubmit}>
                     {" "}
                     {/* submit 버튼을 누르면 handleSubmit이 실행됨. */}
                     <Grid container spacing={4}>
                         <Grid item xs={16}
-                              style={{ marginTop: "0.25%" }}>
+                              style={{ marginTop: "0.25%", }}>
                             <TextField
                                 // color = 'warning'
                                 variant="standard"
-                                required
+                                // required
                                 fullWidth
                                 id="username"
                                 label="이메일 주소"
                                 name="username"
                                 size={"normal"}
-                                style={{ marginTop: "-0.25%",}}
-                                InputProps={{ style: { fontSize: 22 , fontFamily: "Arita-buri-SemiBold"} }}
-                                InputLabelProps={{ style: { fontSize: 24 , fontFamily: "Arita-buri-SemiBold"} }}
+                                style={{ marginTop: "-0.25%"}}
+                                InputProps={{ style: { fontSize: 22 , fontFamily: "Arita-buri-SemiBold",fontWeight:"800"} }}
+                                InputLabelProps={{ style: { fontSize: 24 , fontFamily: "Arita-buri-SemiBold",fontWeight:"700"  } }}
                             />
                         </Grid>
                         <Grid item xs={16}>
                             <TextField
                                 variant="standard"
-                                required
+                                // required
                                 fullWidth
                                 name="password"
                                 label="패스워드"
                                 type="password"
                                 id="password"
                                 style={{ marginTop: "-0.25%" }}
-                                InputProps={{ style: { fontSize: 22, fontFamily: "Arita-buri-SemiBold"} }}
-                                InputLabelProps={{ style: { fontSize: 22 , fontFamily: "Arita-buri-SemiBold"} }}
+                                InputProps={{ style: { fontSize: 22, fontFamily: "Arita-buri-SemiBold", fontWeight:"600",} }}
+                                InputLabelProps={{ style: { fontSize: 22 , fontFamily: "Arita-buri-SemiBold",fontWeight:"700" } }}
                             />
                         </Grid>
                         <Grid item xs={16}>

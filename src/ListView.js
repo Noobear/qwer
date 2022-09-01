@@ -39,15 +39,17 @@ function ListView() {
                                 <div style={{marginTop:"30px"}}>
                                 <pre style={{color:"white"}}>?
                                 </pre>
-                                    { " 작성날짜 : " + data.diaryDTO.title}
+                                    {data.diaryDTO.create_date}
                                 </div>
                                 <p align={"center"}>
-                                    <p style={{background:"lightgrey",width:"270px",}} >
+                                    <p style={{background:"lightgrey",width:"270px"}} >
                                         <img style={{padding:"15px"}} alt={"NULL"}  src={data.imgUrl}  width ={'240px'}/>
                                     </p>
                                 </p>
-                                <div >
-                                    {data.diaryDTO.content}
+                                <div>
+                                    <pre>
+                                        {data.diaryDTO.content}
+                                    </pre>
                                 </div>
                                 <pre>
                             </pre>

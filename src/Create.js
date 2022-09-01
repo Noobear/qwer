@@ -44,10 +44,10 @@ class Create extends React.Component {
                 file : file,
             }
         })
-        //     .then(setTimeout(function() {
-        //     alert('It Works!');
-        //     window.location.href='/main'
-        // }, 8000))
+            .then(setTimeout(function() {
+            alert('It Works!');
+            window.location.href='/main'
+        }, 8000))
     }
 
     render () {

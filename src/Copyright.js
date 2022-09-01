@@ -8,7 +8,7 @@ function Copyright() {
     return(
         <div className={"CS"}>
             <Typography variant={"overline"} align={"center"}>
-                <p className={"Font_ma"} style={{fontSize:"20px", margin:"0"}}>{"Copyright _ "}
+                <p className={"Font_ma"} style={{fontSize:"20px", margin:"0",color:"white"}}>{"Copyright _ "}
                 {new Date().getFullYear()}
                 {". "}By Cloud Server Developer : 6-5{"."}
                 </p>
