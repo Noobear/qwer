@@ -1,7 +1,6 @@
 import './css/App.css';
 import './css/font.css';
-import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Copyright from "./Copyright";
 import {Button, Grid, Typography } from "@mui/material";
 import axios from "axios";
