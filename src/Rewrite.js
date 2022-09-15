@@ -20,12 +20,13 @@ function handleSubmit(event) {
     const diaryModifyDTO = new Blob([SetTEXT], { type: "application/json" });
     console.log('content: '+ newContentSet);
     console.log('file: '+ newFile);
+    console.log('ModifyDTO: '+ diaryModifyDTO);
 
     const id = localStorage.getItem("id");
 
     axios({
-        method: 'POST',
-        url: `/diary/${id}`,
+        method: 'patch',
+        url: `/diary/modify/${id}`,
         headers : {
             'Content-Type' : 'multipart/form-data',
             'Authorization' : localStorage.getItem("Authorization"),
@@ -36,10 +37,13 @@ function handleSubmit(event) {
             file : newFile,
         }
     })
-        .then(setTimeout(function() {
+        .then( response => (setTimeout(function() {
+            localStorage.removeItem('id');
+            localStorage.removeItem('date');
+            localStorage.removeItem('callApi');
             alert('It Works!');
-            window.location.href='/main'
-        }, 8000))
+            // window.location.href='/main'
+        }, 8000)))
 }
 
 
@@ -70,24 +74,28 @@ function Rewrite(){
     }, []);
 
     return(
+
+
         <Grid xs={20} >
             <Grid xs={20}>
                 <MenuAppBar></MenuAppBar>
             </Grid>
-            <Grid>
+            <Grid xs={15}>
                 <div className="wrapper">
                     <div className="content">
                         <form  noValidate onSubmit={handleSubmit}>
                             <Typography style={{
-                                width: '100%', height:"50px",
+                                width: '80%', height:"50px",
                                 fontSize: "35px", marginBottom:"16px",
                                 fontWeight:"bold"}}>{data.create_date}</Typography>
+                            <img src={url} style={{height:"100px"}}/>
                             <textarea
                                 className={"Font_ma"}
                                 id="contentSet"
                                 name='contentSet'
                                 placeholder="내용을 입력하세요!"
                                 style={{width: '100%', height:"280px", fontSize: "30px"}}
+                                defaultValue = {data.content}
                             ></textarea>
                             <input className={"Font_ma"}
                                    style={{scale:"1.5", fontSize:"21px", padding:"25px", marginLeft:"80px"}}
@@ -99,7 +107,7 @@ function Rewrite(){
                                 color="primary"
                             ><p
                                 className={"Font_ma"} style={{fontSize:"32px", margin:"0", width:"300px"}}
-                            >오늘의 일기 작성</p>
+                            >수정하기</p>
                             </Button>
                         </form>
                     </div>

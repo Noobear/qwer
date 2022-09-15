@@ -5,13 +5,13 @@ import {Button, IconButton, Typography, Toolbar, Box, AppBar} from "@mui/materia
 import {signOut} from "./service/ApiService";
 import axios from "axios";
 
-
-
-
 export default function MenuAppBar() {
     const navigate = useNavigate();
     const list = () => navigate('/list');
-    const Home = () => navigate('/main');
+    const Home = () => {
+        localStorage.removeItem("callApi");
+        navigate('/main');
+    }
     const write = () => navigate('/write');
 
     return (

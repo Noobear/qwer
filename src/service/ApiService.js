@@ -101,6 +101,9 @@ export function signOut() {
             window.location.href = "/"})
         .catch( (error) => {
             console.log(error)
+            localStorage.removeItem("Authorization")
+            localStorage.removeItem("refreshToken")
+            window.location.href = "/"
         }); // 토큰 만료 되어있을 때에도 일단 로그아웃은 가능하게 만듬.
 }
 

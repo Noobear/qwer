@@ -16,7 +16,6 @@ class Login extends React.Component {
         let password = data.get("password");
         // ApiService 의 login 메서드를 사용 해 로그인.
         login({ username: username, password: password });
-        // window.location.href='/main'
     }
 
 
@@ -32,9 +31,7 @@ class Login extends React.Component {
                         <Grid item xs={16}
                               style={{ marginTop: "0.25%", }}>
                             <TextField
-                                // color = 'warning'
                                 variant="standard"
-                                // required
                                 fullWidth
                                 id="username"
                                 label="이메일 주소"
@@ -48,7 +45,6 @@ class Login extends React.Component {
                         <Grid item xs={16}>
                             <TextField
                                 variant="standard"
-                                // required
                                 fullWidth
                                 name="password"
                                 label="패스워드"
