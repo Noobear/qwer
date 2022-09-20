@@ -4,6 +4,7 @@ import {Button, Box, Grid, Typography} from "@mui/material";
 import MenuAppBar from "./MenuAppBar";
 import Paper from '@mui/material/Paper';
 import {useNavigate} from "react-router-dom";
+import MenuAppBarOrigin from "./MenuAppBarOrigin";
 
 function handleSubmit(event) {
 
@@ -42,8 +43,8 @@ function handleSubmit(event) {
             localStorage.removeItem('date');
             localStorage.removeItem('callApi');
             alert('It Works!');
-            // window.location.href='/main'
-        }, 8000)))
+            window.location.href='/main'
+        }, 5000)))
 }
 
 
@@ -74,9 +75,7 @@ function Rewrite(){
     }, []);
 
     return(
-
-
-        <Grid xs={20} >
+        <Grid xs={20} className={"App-header1"} >
             <Grid xs={20}>
                 <MenuAppBar></MenuAppBar>
             </Grid>

@@ -7,7 +7,7 @@ import MenuAppBar from "./MenuAppBar";
 
 function Main() {
     return (
-      <div>
+      <div className="App-header1" >
           <MenuAppBar></MenuAppBar>
           <Read/>
       </div>

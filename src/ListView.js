@@ -18,17 +18,35 @@ function ListView() {
             },
         }).then((response) => {
             setData(response.data);
-            // console.log("SRC: " + response.data[4].imgUrl);
-            // console.log("response : " + response);
-            // console.log("res.data : " + response.data);
         }).catch((error) => {
             console.log(error);
         })
     }, []);
 
+    function emoPicklist(ee){
+        if( ee >= -1 && ee < (-0.75)){
+            return '😭😭';
+        } else if (ee >= (-0.75) && ee < (-0.50)){
+            return '🥲🥲';
+        } else if (ee >= -0.50 && ee < -0.25){
+            return '😩😩';
+        } else if (ee >= -0.25 && ee < 0.00){
+            return '😔😔';
+        } else if (ee >= 0.00 && ee < 0.25){
+            return '😐😐';
+        } else if (ee >= 0.25 && ee < 0.50){
+            return '🫤🫤';
+        } else if (ee >= 0.50 && ee < 0.75){
+            return '😀😀';
+        } else if (ee >= 0.75 && ee <= 1.00){
+            return '😆😆';
+        } else {
+            return "오류 😀";
+        }
+    }
 
     return (
-        <div>
+        <div className={"App-header2"}>
             <MenuAppBar></MenuAppBar>
             <Box style={{width:"90%", marginTop:'1.2%'}}>
                 {data.map((data, id) => (
@@ -52,12 +70,13 @@ function ListView() {
                                     </pre>
                                 </div>
                                 <pre>
-                            </pre>
-                                <div>
-                                    오늘의 기분 :  {data.diaryDTO.sentimental}
+
+                                </pre>
+                                <div style={{fontSize:"50px"}}>
+                                    {emoPicklist(data.diaryDTO.sentimental)}
                                 </div>
                                 <pre style={{color:"white"}}>_
-                        </pre>
+                                </pre>
                             </div>
                         </Paper>
                     </Box>

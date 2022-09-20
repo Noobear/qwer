@@ -2,9 +2,10 @@ import './css/App.css';
 import './css/font.css';
 import React, { useState, useEffect } from 'react';
 import Copyright from "./Copyright";
-import {Button, Grid, Typography } from "@mui/material";
+import {Button, Grid, Typography, Paper } from "@mui/material";
 import axios from "axios";
 import MenuAppBar from "./MenuAppBar";
+import MenuAppBarOrigin from "./MenuAppBarOrigin";
 
 class Create extends React.Component {
 
@@ -46,7 +47,7 @@ class Create extends React.Component {
             .then(setTimeout(function() {
             alert('It Works!');
             window.location.href='/main'
-        }, 8000))
+        }, 5000))
     }
 
     render () {
@@ -58,11 +59,11 @@ class Create extends React.Component {
             };
 
         return (
-            <Grid xs={20} >
+            <Grid xs={20} className={"App-header1"}>
                 <Grid xs={20}>
                 <MenuAppBar></MenuAppBar>
                 </Grid>
-                <Grid>
+                <Grid marginTop={"100px"} marginBottom={"-200px"} paddingBottom={"-100px"}>
                     <div className="wrapper">
                         <div className="content">
                             <form  noValidate onSubmit={this.handleSubmit}>

@@ -44,10 +44,32 @@ function OpenDiary() {
             console.log(error);
         })
     }
-
+    function emoPickone(e){
+        if( e >= -1 && e < (-0.75)){
+            return '😭😭';
+        } else if (e >= (-0.75) && e < (-0.50)){
+            return '🥲🥲';
+        } else if (e >= -0.50 && e < -0.25){
+            return '😩😩';
+        } else if (e >= -0.25 && e < 0.00){
+            return '😔😔';
+        } else if (e >= 0.00 && e < 0.25){
+            return '😐😐';
+        } else if (e >= 0.25 && e < 0.50){
+            return '🫤🫤';
+        } else if (e >= 0.50 && e < 0.75){
+            return '😀😀';
+        } else if (e >= 0.75 && e <= 1.00){
+            return '😆😆';
+        } else {
+            return "오류 😀";
+        }
+    }
 
     return (
-        <div>
+        <div
+            // className={"App-header1"}
+        >
             <MenuAppBar></MenuAppBar>
             <Box width={"1200px"} paddingLeft={"24%"}>
                 <Paper elevation={5}>
@@ -63,13 +85,15 @@ function OpenDiary() {
                             </p>
                         </p>
                         <div>
+                            <pre>
                             {data.content}
+                            </pre>
                         </div>
                         <pre>
 
                             </pre>
                         <div>
-                            오늘의 기분 : {data.sentimental}
+                            오늘의 기분 : {emoPickone(data.sentimental)}
                         </div>
                         <pre style={{color:"white"}}>_
                         </pre>
